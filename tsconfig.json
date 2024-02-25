@@ -1,0 +1,13 @@
+{
+  "ts-node": {
+    "experimentalResolver": true
+  },
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "CommonJS",
+    "esModuleInterop": true,
+    "declaration": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true
+  }
+}
