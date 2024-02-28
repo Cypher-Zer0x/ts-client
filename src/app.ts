@@ -22,6 +22,6 @@ app.use("/api/signTx", mlsagRequest);
 app.use("/api/mlsagVerify", verifyMlsag);
 app.use("/api/txBuilber", txBuilber);
 app.use("/api/verifyTx", verifyTx);
-
+app.use("/api/generateCommitment", generateCommitment);
 
 export default app;
