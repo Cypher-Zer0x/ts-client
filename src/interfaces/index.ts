@@ -53,8 +53,8 @@ export interface SignedPaymentTX extends UnsignedPaymentTX {
 }
 
 export interface TxToVerify {
-  tx: SignedPaymentTX,
-  inputs: (PaymentUTXO | CoinbaseUTXO | ExitUTXO)[],
+  tx: string, // the signed tx (hex encoded mlsag)
+  inputs: string[], // the input's commitments
   outputs: (PaymentUTXO | CoinbaseUTXO | ExitUTXO)[],
 }
 

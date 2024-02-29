@@ -95,7 +95,9 @@ export function signMlsag(message: string, keys: { utxoPrivKeys: bigint[], commi
 export function verifyMlsag(signature: { ring: Point[][], c: bigint, responses: bigint[][], message: string, keyImages: Point[] }) {
   const curve = new Curve(CurveName.SECP256K1);
   const G = curve.GtoPoint();
-
+  console.log("ring: \n",
+    signature.ring.map(ringElem => ringElem.map(point => point.compress()))
+  );
   for (let i = 0; i < signature.ring.length; i++) {
     if (signature.ring[i].length !== signature.ring[0].length) throw new Error("Invalid length of ring elements");
   }
