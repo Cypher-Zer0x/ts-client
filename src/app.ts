@@ -4,6 +4,7 @@ import mlsagRequest from "./routes/mlsagRequest";
 import verifyMlsag  from "./routes/verifyMlsag";
 import txBuilber from "./routes/txBuilder";
 import verifyTx from "./routes/verifyTx";
+import generateCommitment from "./routes/generateCommitment";
 
 
 
