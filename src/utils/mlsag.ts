@@ -137,11 +137,6 @@ export function hexEncodeMLSAG(signature: Mlsag) {
 
 export function hexDecodeMLSAG(hex: string): Mlsag {
   const obj = JSON.parse(Buffer.from(hex.slice(2), 'hex').toString('utf-8'));
-  console.log("obj: \n", obj.ring.map((ringElem: string[]) => {
-    for (let pt in ringElem) {
-    console.log(Point.decompress(pt));
-    }
-  }));
   return {
     ring: obj.ring.map((ringElem: string[]) => ringElem.map((point: string) => Point.decompress(point))),
     c: BigInt(obj.c),
