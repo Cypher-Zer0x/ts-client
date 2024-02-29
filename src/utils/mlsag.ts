@@ -135,13 +135,13 @@ export function hexEncodeMLSAG(signature: Mlsag) {
   return `0x${Buffer.from(str).toString('hex')}`;
 }
 
-export  function hexDecodeMLSAG(hex: string): Mlsag {
+export function hexDecodeMLSAG(hex: string): Mlsag {
   const obj = JSON.parse(Buffer.from(hex.slice(2), 'hex').toString('utf-8'));
-  console.log("obj: ", obj);
+  console.log("obj: \n", obj.ring.map((ringElem: string[]) => ringElem.map((point: string) => point)),);
   return {
-    ring: obj.ring.map((ringElem : string[])=> ringElem.map((point: string) => Point.decompress(point))),
+    ring: obj.ring.map((ringElem: string[]) => ringElem.map((point: string) => Point.decompress(point))),
     c: BigInt(obj.c),
-    responses: obj.responses.map((responseElem: string[])=> responseElem.map((response: string) => BigInt(response))),
+    responses: obj.responses.map((responseElem: string[]) => responseElem.map((response: string) => BigInt(response))),
     message: obj.message,
     keyImages: obj.keyImages.map((point: string) => Point.decompress(point))
   };
